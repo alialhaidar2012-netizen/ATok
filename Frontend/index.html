@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniTikTok</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--Navigationsleiste-->
+  <nav class="top-nav">
+    <button class="nav-tab active" id="tab-for-you">For You</button>
+    <button class="nav-tab" id="tab-search">Search</button>
+    <button class="nav-tab" id="tab-abo">Abos</button>
+    <button class="nav-tab" id="tab-me">Me</button>
+  </nav>
+
+  <!-- 2. Container für Videos -->
+  <main class="main-content">
+  
+  <!--For You -->
+  <section class="video-feed tab-content active" id="content-for-you">
+    <p class="placeholder-text">For You Feed-No videos yet</p>
+  </section>
+  
+  <!--Search -->
+  <section class="video-feed tab-content" id="content-search">
+    <input type="text" placeholder="Search for Videos" style="width: 100%; padding: 10px; border-radius: 5px; border: none; background: #222; color: #fff;">
+  </section>
+  
+  <!-- Abo-->
+  <section class="video-feed tab-content" id="content-abo">
+    <p class="placeholder-text">Your Abos</p>
+  </section>
+  
+  <!--Me-->
+  <section class="video-feed tab-content" id="content-me">
+    <p class="placeholder-text">Your profile</p>
+  </section>
+  
+</main>
+  
+  <!--Video Upload-->
+  <input type="file" id="videoInput" accept="video/*" style="display: none;">
+  
+  <!--scripte-->
+  <script src="changeSection.js" defer></script>
+  <script type="module" src="/Backend/login.js"></script>
+  <script type="module" src="/Backend/register.js"></script>
+</body>
+</html>
