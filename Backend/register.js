@@ -1,7 +1,7 @@
 import {auth} from './firebase.js';
 import {createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 
-export function prepareForRegister() {
+function prepareForRegister() {
   const meSection = document.getElementById('content-me');
   meSection.innerHTML = '';
   
