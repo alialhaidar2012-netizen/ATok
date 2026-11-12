@@ -1,6 +1,5 @@
-//hole die vordefinierten Funktionen aus Firebase
-import {auth} from './firebase.js';
-import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import {auth} from './firebase.js'; //get definded functions from firebase.js
+import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'; // get it from firebase
 
 const meSection = document.getElementById("content-me");
 const forYouSection = document.getElementById("content-for-you");
@@ -15,7 +14,7 @@ if(!window.loggedIn){
 
 export function prepareForLogin() {
   const loginForm = document.createElement('div');
-  loginForm.className = 'login-form'; //Klasse für alles von Login
+  loginForm.className = 'login-form'; //class for login that we can later style
   
   const emailInput = document.createElement('input');
   emailInput.type = 'email';
@@ -54,7 +53,7 @@ async function login(email, password) {
   
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email,password);
-    console.log("Login succeeded", userCredential.user); // kann später noch schöner gemacht werden
+    console.log("Login succeeded", userCredential.user); //Later we will make it more beautifully
     loginForm.style.display = 'none';
     window.loggedIn = true;
   }catch(error){
@@ -62,4 +61,4 @@ async function login(email, password) {
   }
 }
 
-window.prepareForLogin = prepareForLogin; //global machen
+window.prepareForLogin = prepareForLogin; //make it globally accessible
