@@ -4,6 +4,8 @@ import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/1
 const meSection = document.getElementById("content-me");
 const forYouSection = document.getElementById("content-for-you");
 
+const loginForm = document.createElement('div');
+
 window.loggedIn = false;
 
 if(!window.loggedIn){
@@ -13,7 +15,6 @@ if(!window.loggedIn){
 }
 
 export function prepareForLogin() {
-  const loginForm = document.createElement('div');
   loginForm.className = 'login-form'; //class for login that we can later style
   
   const emailInput = document.createElement('input');
