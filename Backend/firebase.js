@@ -1,4 +1,5 @@
 import {getAuth} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCeUlC0udjUA3SQ_BTHSRPTQbp4dgmNggI",
@@ -10,4 +11,5 @@ const firebaseConfig = {
   measurementId: "G-XGHL72ZT2L"
 };
 
+const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app);
