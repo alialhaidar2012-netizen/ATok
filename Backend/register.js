@@ -19,9 +19,9 @@ function prepareForRegister() {
   passwordInput.id = 'password';
   
   const passwordInputSecond = document.createElement('input');
-  passwordInput.type = 'password';
-  passwordInput.placeholder = 'Write your password again';
-  passwordInput.id = 'password';
+  passwordInputSecond.type = 'password';
+  passwordInputSecond.placeholder = 'Write your password again';
+  passwordInputSecond.id = 'password';
   
   const registerButton = document.createElement('button');
   registerButton.id = 'register-button';
@@ -34,7 +34,7 @@ function prepareForRegister() {
   
   registerForm.append(emailInput, passwordInput, goToLoginButton, registerButton);
   
-  meSection.append(loginForm)
+  meSection.append(registerForm)
   
   registerButton.addEventListener('click', () => {
     if(passwordInput.value === passwordInputSecond){
@@ -54,7 +54,8 @@ async function register(email, password) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     alert("Registration went well!");
     window.loggedIn = true;
-    registerForm.style.display = 'none';
+    const registerForm = document.querySelector('.login-form');
+    if(registerForm) registerForm.style.display = 'none';
   } catch (error){
     alert("Something went wrong" + error.message);
   }
