@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiniTikTok</title>
+  <title>ATok</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!--Navigationsleiste-->
+  <!--navigation-->
   <nav class="top-nav">
     <button class="nav-tab active" id="tab-for-you">For You</button>
     <button class="nav-tab" id="tab-search">Search</button>
@@ -41,12 +41,15 @@
   
 </main>
   
-  <!--Video Upload-->
+  <!--video upload-->
   <input type="file" id="videoInput" accept="video/*" style="display: none;">
   
-  <!--scripte-->
+  <!--scripts-->
   <script src="changeSection.js" defer></script>
   <script type="module" src="/Backend/login.js"></script>
   <script type="module" src="/Backend/register.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
 </body>
 </html>
