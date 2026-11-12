@@ -1,4 +1,5 @@
 import {auth} from './firebase.js';
+import {createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 
 export function prepareForRegister() {
   const meSection = document.getElementById('content-me');
@@ -49,8 +50,6 @@ export function prepareForRegister() {
 }
 
 async function register(email, password) {
-  const auth = getAuth();
-  
   try{
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     alert("Registration went well!");
