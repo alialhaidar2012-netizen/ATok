@@ -29,8 +29,8 @@ function prepareForRegister() {
   registerButton.textContent = "Register";
   
   const goToLoginButton = document.createElement('button');
-  loginButton.id = 'login-button';
-  loginButton.textContent = "You have already an account? Go to Login";
+  goToLoginButton.id = 'login-button';
+  goToLoginButton.textContent = "You have already an account? Go to Login";
   
   registerForm.append(emailInput, passwordInput, loginButton, registerButton);
   
