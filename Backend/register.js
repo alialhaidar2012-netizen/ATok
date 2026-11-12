@@ -3,10 +3,10 @@ import {createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs
 
 export function prepareForRegister() {
   const meSection = document.getElementById('content-me');
-  meSection.innerHTML = ''; //Klasse für alles von Login
+  meSection.innerHTML = '';
   
   const registerForm = document.createElement('div');
-  registerForm.className = 'login-form';
+  registerForm.className = 'login-form'; // same class like login => similiar style
   
   const emailInput = document.createElement('input');
   emailInput.type = 'email';
@@ -60,4 +60,4 @@ async function register(email, password) {
   }
 }
 
-window.prepareForRegister = prepareForRegister; //global machen
+window.prepareForRegister = prepareForRegister; //make it globally accessible
