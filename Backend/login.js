@@ -49,8 +49,6 @@ export function prepareForLogin() {
 }
 
 async function login(email, password) {
-  const auth = getAuth();
-  
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email,password);
     console.log("Login succeeded", userCredential.user); //Later we will make it more beautifully
