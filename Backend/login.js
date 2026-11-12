@@ -1,5 +1,6 @@
 //hole die vordefinierten Funktionen aus Firebase
 import {auth} from './firebase.js';
+import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 
 const meSection = document.getElementById("content-me");
 const forYouSection = document.getElementById("content-for-you");
