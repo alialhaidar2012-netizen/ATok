@@ -32,7 +32,7 @@ function prepareForRegister() {
   goToLoginButton.id = 'login-button';
   goToLoginButton.textContent = "You have already an account? Go to Login";
   
-  registerForm.append(emailInput, passwordInput, loginButton, registerButton);
+  registerForm.append(emailInput, passwordInput, goToLoginButton, registerButton);
   
   meSection.append(loginForm)
   
