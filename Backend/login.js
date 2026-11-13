@@ -20,7 +20,11 @@ export function prepareForLogin() {
   emailInput.type = 'email';
   emailInput.placeholder = 'E-Mail';
   emailInput.id = 'email';
-    
+
+  const usernameInput = document.createElement('input');
+  usernameInput.id = 'username-input';
+  usernameInput.placeholder = 'username';
+  
   const passwordInput = document.createElement('input');    
   passwordInput.type = 'password';
   passwordInput.placeholder = 'Password';
