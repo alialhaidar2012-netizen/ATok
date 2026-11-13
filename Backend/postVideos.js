@@ -1,7 +1,9 @@
-// Für Storage (Datei hochladen)
+// Storage (upload videos)
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js';
-// Für Firestore (URL speichern)
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+//Firestore (save URL)
+import { getFirestore, collection, addDoc, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+import{auth} from './firebase.js';
 
 function openCamera() {
   const videoInput = document.createElement('input')
@@ -55,9 +57,20 @@ function showVideoPreview(file) {
   meSection.append(video, postButton);
 }
 async function postVideo(file, category, subCategory){
+  const loginForm = document.getElementById('loginForm');
+  const meSection = document.getElementById('meSection');
+
+  const currentUser = auth.currentUser;
+
+  //stops postVideo if you arent logged in 
+  if(!currentUser){
+    meSection.append(loginForm); 
+    return;                     
+  } 
+  
   const storage = getStorage();
   const db = getFirestore(); // db steht für database
-  
+
   try{
     //Datei in den Storage hochladen
     const storageRef = ref(storage, ˋvideos/${category}/${subCategory/${Date.now()}_${file.name}ˋ);    //upload
