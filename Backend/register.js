@@ -12,6 +12,10 @@ function prepareForRegister() {
   emailInput.type = 'email';
   emailInput.placeholder = 'E-Mail';
   emailInput.id = 'email';
+
+  const usernameInput = document.createElement('input');
+  usernameInput.id = 'username-input';
+  usernameInput.placeholder = 'username';
   
   const passwordInput = document.createElement('input');
   passwordInput.type = 'password';
@@ -32,7 +36,7 @@ function prepareForRegister() {
   goToLoginButton.id = 'login-button';
   goToLoginButton.textContent = "You have already an account? Go to Login";
   
-  registerForm.append(emailInput, passwordInput, goToLoginButton, registerButton, passwordInputSecond);
+  registerForm.append(emailInput, usernameInput, passwordInput, passwortInputSecond, goToLoginButton, registerButton);
   
   meSection.append(registerForm)
   
