@@ -62,7 +62,7 @@ async function login(email, password) {
     
     window.loggedIn = true;
   }catch(error){
-    console.log("Login went wrong", error.code);
+    console.log("Check username and password ", error.code);
   }
 }
 
