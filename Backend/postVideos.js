@@ -8,8 +8,8 @@ import{auth} from './firebase.js';
 function openCamera() {
   const videoInput = document.createElement('input')
   videoInput.type ='file';
-  videoInput.accept = 'video/*, image/*' // nur Fotos und Videos
-  videoInput.capture = 'environment'; //rückkamera öffnen
+  videoInput.accept = 'video/*, image/*' //only photos and videos
+  videoInput.capture = 'environment'; //open backcamera
   
   videoInput.onchange = (e) => {
     const file = e.target.files[0];
@@ -20,10 +20,10 @@ function openCamera() {
 function openGallery() {
   const videoInput = document.createElement('input')
   videoInput.type = 'file';
-  videoInput.accept = 'video/*, image/*' // nur Fotos und Videos
+  videoInput.accept = 'video/*, image/*' //only photos and videos
   
   videoInput.onchange = (e) => {
-    const file = e.target.files[0]; //nimm nur das erste
+    const file = e.target.files[0]; //takes only the first
     if(file) showVideoPreview(file);
   };
   videoInput.click();
@@ -36,7 +36,7 @@ function showVideoPreview(file) {
   
   //Das video Element erstellen
   const video = document.createElement('video');
-  video.src = URL.createObjectURL(file) //erstellt Link
+  video.src = URL.createObjectURL(file) //creating a link
   video.controls = true;
   video.style.width = '100%';
   video.style.maxHeight = '400px';
@@ -56,6 +56,7 @@ function showVideoPreview(file) {
   //in container einfügen
   meSection.append(video, postButton);
 }
+
 async function postVideo(file, category, subCategory){
   const loginForm = document.getElementById('loginForm');
   const meSection = document.getElementById('meSection');
@@ -69,22 +70,33 @@ async function postVideo(file, category, subCategory){
   } 
   
   const storage = getStorage();
-  const db = getFirestore(); // db steht für database
+  const db = getFirestore(); // db means database
 
   try{
-    //Datei in den Storage hochladen
+    //get username from the firestore
+    const userDocRef = doc(db, "users", user.uid);
+    const userDocSnap = await getDoc(userDocRef);
+
+    let username = "anonym";
+    if(userDocSnap.exists()){
+      username = userDocSnap.data().username;
+    }
+    
+    //upload video in the storage
     const storageRef = ref(storage, ˋvideos/${category}/${subCategory/${Date.now()}_${file.name}ˋ);    //upload
     await uploadBytes(storageRef, file); //get URL
-    
     //den Link holen
     const downloadURL = await getDownloadURL(storageRef);
     
-    //Nur den Link in Firestore zum sparen von Speicherplatz
+    //only the link to save storage space
     await addDoc(collection(db, 'videos'), {
+      name : file.name,
       url: downloadURL,
       createdAt: Date.now(),
       category: category,
-      subCategory: subCategory
+      subCategory: subCategory,
+      username: username,
+      userId: user.uid //UID for maybe other features
     });
     
     alert('Video posted!');
