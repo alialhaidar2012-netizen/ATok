@@ -1,5 +1,6 @@
 import {auth} from './firebase.js';
 import {createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
 function prepareForRegister() {
   const meSection = document.getElementById('content-me');
@@ -54,12 +55,24 @@ function prepareForRegister() {
 }
 
 async function register(email, password) {
+  const username = document.getElementById('username-input');
   try{
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user; //has the UID
+
+    //save username
+    const db = getFirestore();
+    await setDoc(doc(db, "users", user.uid), {
+      username: username,
+      email: email,
+      createdAt: Date.now();
+    });
+    
     alert("Registration went well!");
     window.loggedIn = true;
     const registerForm = document.querySelector('.login-form');
     if(registerForm) registerForm.style.display = 'none';
+  
   } catch (error){
     alert("Something went wrong" + error.message);
   }
