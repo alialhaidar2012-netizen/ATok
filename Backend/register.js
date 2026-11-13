@@ -18,7 +18,7 @@ function prepareForRegister() {
   passwordInput.placeholder = 'Password';
   passwordInput.id = 'password';
   
-  const passwordInputSecond = document.createElement('input');
+  const passwordInputSecond = document.createElement('input'); //if you typo you will notice it here
   passwordInputSecond.type = 'password';
   passwordInputSecond.placeholder = 'Write your password again';
   passwordInputSecond.id = 'password';
@@ -32,12 +32,12 @@ function prepareForRegister() {
   goToLoginButton.id = 'login-button';
   goToLoginButton.textContent = "You have already an account? Go to Login";
   
-  registerForm.append(emailInput, passwordInput, goToLoginButton, registerButton);
+  registerForm.append(emailInput, passwordInput, goToLoginButton, registerButton, passwordInputSecond);
   
   meSection.append(registerForm)
   
   registerButton.addEventListener('click', () => {
-    if(passwordInput.value === passwordInputSecond){
+    if(passwordInput.value === passwordInputSecond.value){
     register(emailInput.value, passwordInput.value);
     }else{
       console.log("Registration failed. Check if the password and the password second check are the same!")
