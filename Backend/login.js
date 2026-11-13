@@ -39,7 +39,7 @@ export function prepareForLogin() {
   goToRegisterButton.className = 'register-link';
   goToRegisterButton.textContent = "No Account? Register and make one";
   
-  loginForm.append(emailInput, passwordInput, loginButton, goToRegisterButton);
+  loginForm.append(emailInput, usernameInput, passwordInput, loginButton, goToRegisterButton);
   
   meSection.innerHTML = "";
   meSection.append(loginForm)
