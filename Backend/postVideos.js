@@ -74,7 +74,7 @@ async function postVideo(file, category, subCategory){
 
   try{
     //get username from the firestore
-    const userDocRef = doc(db, "users", user.uid);
+    const userDocRef = doc(db, "users", currentUser.uid);
     const userDocSnap = await getDoc(userDocRef);
 
     let username = "anonym";
