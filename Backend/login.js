@@ -61,6 +61,8 @@ async function login(email, password) {
     if (loginForm) loginForm.style.display = 'none';
     
     window.loggedIn = true;
+
+    window.createHTML();
   }catch(error){
     console.log("Check username and password ", error.code);
   }
