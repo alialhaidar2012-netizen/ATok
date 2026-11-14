@@ -43,7 +43,10 @@ function prepareForRegister() {
   
   registerButton.addEventListener('click', () => {
     if(passwordInput.value === passwordInputSecond.value){
-    register(emailInput.value, passwordInput.value);
+    const email = emailInput.value;
+    const password = passwordInput.value;
+      
+    register(email, password);
     }else{
       console.log("Registration failed. Check if the password and the password second check are the same!")
     }
@@ -55,7 +58,7 @@ function prepareForRegister() {
 }
 
 async function register(email, password) {
-  const username = document.getElementById('username-input');
+  const username = document.getElementById('username-input').value;
   try{
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user; //has the UID
