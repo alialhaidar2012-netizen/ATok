@@ -95,7 +95,7 @@ async function postVideo(file, category, subCategory){
       createdAt: Date.now(),
       category: category,
       subCategory: subCategory,
-      username: username,
+      username: username.value,
       userId: user.uid //UID for maybe other features
     });
     
