@@ -75,7 +75,7 @@ async function register(email, password) {
     window.loggedIn = true;
     const registerForm = document.querySelector('.login-form');
     if(registerForm) registerForm.style.display = 'none';
-  
+    window.createHTML();
   } catch (error){
     alert("Something went wrong" + error.message);
   }
