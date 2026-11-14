@@ -65,7 +65,7 @@ async function register(email, password) {
     await setDoc(doc(db, "users", user.uid), {
       username: username,
       email: email,
-      createdAt: Date.now();
+      createdAt: Date.now()
     });
     
     alert("Registration went well!");
