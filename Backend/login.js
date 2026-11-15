@@ -64,7 +64,7 @@ async function login(email, password) {
 
     window.createHTML();
   }catch(error){
-    console.log("Check username and password ", error.code);
+    console.log("Check username and password ", error);
   }
 }
 
