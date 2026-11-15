@@ -93,4 +93,4 @@ function makeNextDropdowns() {
     }
   });
 }
-window.makeNextDropdowns = window.makeNextDropdowns;
+window.makeNextDropdowns = makeNextDropdowns;
