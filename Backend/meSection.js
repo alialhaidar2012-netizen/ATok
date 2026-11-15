@@ -77,12 +77,14 @@ function makeNextDropdowns() {
   categorySelector.addEventListener('change', (event) => {
     const selectedCategory = event.target.value; //gewählte Kategorie wird hier herausgefunden
     
-    subCategorySelector.innerHTML = ''; //alte optionen löschen
+    subCategorySelector.innerHTML = '<option>Please choose a subcategory...</option>';
     
     const categoryData = options.find(item => item[0][0] === selectedCategory); //passede Unterkategorie suchen
     
-    if (categoryData && categoryData[1]){
-      const subcategories = categoryData[1]; // die Array in den anderen Array z.B. ["soccer", "badminton"]
+    if (categoryData && categoryData[1] > 1){  //are there any subcategories?
+
+    for(let i=1; i< categorieData.length-1){
+    const subcategories = categoryData[1]; // die Array in den anderen Array z.B. ["soccer", "badminton"]
       
       subcategories.forEach(subName => {
         const subOption = document.createElement('option');
@@ -90,6 +92,10 @@ function makeNextDropdowns() {
         subOption.textContent = subName;
         subCategorySelector.append(subOption)
       });
+    }
+      subCategorySelector.disabled = true; //activate it so that you can click
+    }else{
+      subCategorySelector.disabled = true; // if there arent any subcategories like fishing
     }
   });
 }
