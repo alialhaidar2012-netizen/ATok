@@ -20,6 +20,7 @@ const options = [
 let meSection;
 let takeVideo, selectVideo, settingsForPost, postButton, titleInput;
 let categorySelector, subCategorySelector;
+const contentMe = document.getElementById('content-me');
 
 function createHTML (){ 
   meSection = document.createElement('div');
@@ -53,6 +54,7 @@ window.createHTML = createHTML;
 function appendHTML() {
   settingsForPost.append(categorySelector,subCategorySelector);
   meSection.append(takeVideo, selectVideo, settingsForPost);
+  contentMe.append(meSection);
   window.makeFirstDropdown();
 }
 window.appendHTML = appendHTML;
@@ -91,4 +93,4 @@ function makeNextDropdowns() {
     }
   });
 }
-window.makeNextDropdowns = window.makeNextDropdowns();
+window.makeNextDropdowns = window.makeNextDropdowns;
