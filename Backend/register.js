@@ -77,7 +77,7 @@ async function register(email, password) {
     if(registerForm) registerForm.style.display = 'none';
     window.createHTML();
   } catch (error){
-    alert("Something went wrong" + error.message);
+    alert("Something went wrong" + error);
   }
 }
 
