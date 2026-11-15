@@ -91,3 +91,4 @@ function makeNextDropdowns() {
     }
   });
 }
+window.makeNextDropdowns = window.makeNextDropdowns();
