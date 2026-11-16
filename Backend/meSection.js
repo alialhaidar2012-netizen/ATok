@@ -19,8 +19,9 @@ const options = [
 
 let meSection;
 let takeVideo, selectVideo, settingsForPost, postButton, titleInput;
-let categorySelector, subCategorySelector;
 const contentMe = document.getElementById('content-me');
+const categorySelector = document.createElement('select');
+let categoryHTML = '<option value="">Please choose</option>';
 
 function createHTML (){ 
   meSection = document.createElement('div');
@@ -47,83 +48,54 @@ function createHTML (){
   subCategorySelector = document.createElement('select');
   subCategorySelector.id = "sub-category-selector";
   subCategorySelector.disabled = true; //zuerst ausschalten bis erste Kategorie gewählt wurde
+
+  postButton = document.createElement('button');
+  postButton.id = 'post-button';
+  postButton.onclick = '';
+  
   window.appendHTML();
 }
 window.createHTML = createHTML;
 
+function makeDropdowns() {
+  categorySelector.id = 'categorySelector';
+
+  options.forEach(item =>{
+    categoryHTML += ˋ<option value="${item[0][0]}">${item[0][0]}</option>ˋ;
+  });
+  categorySelector.innerHTML = categoryHTML;
+
+  const optionContainer = document.createElement('div');
+  optionContainer.id = 'option-container';
+  optionConatiner.innerHTML = ''; //delete everything in the Container
+  
+  categorySelector.addEventListener('change', (event) => {
+  const selectedCategory = event.target.value;
+
+  const categoryData = options.find(item => item[0][0] === selectedCategory); //find the right Data in the Array
+
+  if(categoryData && categoryData.length > 1){  //only if there are subCategories build them
+    for(let i = 1; i < categoryData.length; i++){
+     
+     const newSelect = document.createElement('select');
+     let subHTML = '<option value="">Please choose</option>';
+
+     categoryData[i].forEach(subName => {
+       subHTML += ˋ<option value='${subName}'>${subName}</option>ˋ;
+     });
+
+     newSelect.innerHTML = subHTML;
+     optionContainer.append(newSelect);
+    }
+  }
+  });
+  window.appendHTML();
+}
+window.makeDropdowns = makeDropdowns;
+
 function appendHTML() {
-  settingsForPost.append(categorySelector,subCategorySelector);
-  meSection.append(takeVideo, selectVideo, settingsForPost);
+  settingsForPost.append(categorySelector,titleInput, optionContainer);
+  meSection.append(takeVideo, selectVideo, postButton, settingsForPost);
   contentMe.append(meSection);
-  window.makeFirstDropdown();
 }
 window.appendHTML = appendHTML;
-
-function makeFirstDropdown() {
-  options.forEach(item => {
-    const categoryName = item[0][0]; // fängt bei sports an
-    
-    const option = document.createElement('option');
-    option.value = categoryName;
-    option.textContent = categoryName;
-    
-    categorySelector.append(option);
-  }); 
-  window.makeSecondDropdown();
-}
-window.makeFirstDropdown = makeFirstDropdown;
-
-function makeSecondDropdown() {
-  categorySelector.addEventListener('change', (event) => {
-    const selectedCategory = event.target.value; //search selected Category
-    
-    subCategorySelector.innerHTML = '<option>Please choose a subcategory...</option>';
-    
-    let categoryData = options.find(item => item[0][0] === selectedCategory); //search the right subcategory
-    if (categoryData && categoryData.length > 1){  //are there any subcategories?
-
-    for(let i=1; i< categoryData.length; i++){
-    const subcategories = categoryData[i]; // die Array in den anderen Array z.B. ["soccer", "badminton"]
-      
-      subcategories.forEach(subName => {
-        const subOption = document.createElement('option');
-        subOption.value = subName;
-        subOption.textContent = subName;
-        subCategorySelector.append(subOption);
-      });
-    }
-      subCategorySelector.disabled = false; //activate it so that you can click
-    }else{
-      subCategorySelector.disabled = true; // if there arent any subcategories like fishing
-    }
-  });
-}
-window.makeSecondDropdown = makeSecondDropdown;
-
-function makeThirdDropdown(){
-    subCategorySelector.addEventListener('change', (event) => {
-    const selectedSubCategory = event.target.value; //search selected subCategory
-    
-    subSubCategorySelector.innerHTML = '<option>Please choose another subcategory...</option>';
-    
-    let categoryData = options.find(item => item[0][0] === selectedSubCategory); //search the right subsubcategory
-    if (categoryData && categoryData.length > 1){  //are there any subcategories?
-
-    for(let i=2; i< categoryData.length; i++){
-    const subcategories = categoryData[i]; //the array in the others e.g. ["soccer", "badminton"]
-      
-      subSubcategories.forEach(subName => {
-        const subSubOption = document.createElement('option');
-        subSubOption.value = subSubName;
-        subSubOption.textContent = subSubName;
-        subSubCategorySelector.append(subSubOption);
-      });
-    }
-      subSubCategorySelector.disabled = false; //activate it so that you can click
-    }else{
-      subSubCategorySelector.disabled = true; // if there arent any subcategories like fishing
-    }
-  });
-}
-}
-window.makeThirdDropdown = makeThirdDropdown;
