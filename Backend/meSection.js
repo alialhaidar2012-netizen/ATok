@@ -22,6 +22,7 @@ let takeVideo, selectVideo, settingsForPost, postButton, titleInput;
 const contentMe = document.getElementById('content-me');
 const categorySelector = document.createElement('select');
 let categoryHTML = '<option value="">Please choose</option>';
+const optionContainer = document.createElement('div');
 
 function createHTML (){ 
   meSection = document.createElement('div');
@@ -42,18 +43,11 @@ function createHTML (){
   titleInput.type = 'text';
   titleInput.id = 'title-input';
 
-  categorySelector = document.createElement('select');
-  categorySelector.id = 'cagtegorySelector';
-  
-  subCategorySelector = document.createElement('select');
-  subCategorySelector.id = "sub-category-selector";
-  subCategorySelector.disabled = true; //zuerst ausschalten bis erste Kategorie gewählt wurde
-
   postButton = document.createElement('button');
   postButton.id = 'post-button';
   postButton.onclick = '';
   
-  window.appendHTML();
+  window.makeDropdowns();
 }
 window.createHTML = createHTML;
 
@@ -65,9 +59,8 @@ function makeDropdowns() {
   });
   categorySelector.innerHTML = categoryHTML;
 
-  const optionContainer = document.createElement('div');
   optionContainer.id = 'option-container';
-  optionConatiner.innerHTML = ''; //delete everything in the Container
+  optionContainer.innerHTML = ''; //delete everything in the Container
   
   categorySelector.addEventListener('change', (event) => {
   const selectedCategory = event.target.value;
