@@ -69,18 +69,17 @@ function makeFirstDropdown() {
     
     categorySelector.append(option);
   }); 
-  window.makeNextDropdowns();
+  window.makeSecondDropdown();
 }
 window.makeFirstDropdown = makeFirstDropdown;
 
-function makeNextDropdowns() {
+function makeSecondDropdown() {
   categorySelector.addEventListener('change', (event) => {
-    const selectedCategory = event.target.value; //gewählte Kategorie wird hier herausgefunden
+    const selectedCategory = event.target.value; //search selected Category
     
     subCategorySelector.innerHTML = '<option>Please choose a subcategory...</option>';
     
-    const categoryData = options.find(item => item[0][0] === selectedCategory); //passede Unterkategorie suchen
-    
+    let categoryData = options.find(item => item[0][0] === selectedCategory); //search the right subcategory
     if (categoryData && categoryData.length > 1){  //are there any subcategories?
 
     for(let i=1; i< categoryData.length; i++){
@@ -90,7 +89,7 @@ function makeNextDropdowns() {
         const subOption = document.createElement('option');
         subOption.value = subName;
         subOption.textContent = subName;
-        subCategorySelector.append(subOption)
+        subCategorySelector.append(subOption);
       });
     }
       subCategorySelector.disabled = false; //activate it so that you can click
@@ -99,4 +98,32 @@ function makeNextDropdowns() {
     }
   });
 }
-window.makeNextDropdowns = makeNextDropdowns;
+window.makeSecondDropdown = makeSecondDropdown;
+
+function makeThirdDropdown(){
+    subCategorySelector.addEventListener('change', (event) => {
+    const selectedSubCategory = event.target.value; //search selected subCategory
+    
+    subSubCategorySelector.innerHTML = '<option>Please choose another subcategory...</option>';
+    
+    let categoryData = options.find(item => item[0][0] === selectedSubCategory); //search the right subsubcategory
+    if (categoryData && categoryData.length > 1){  //are there any subcategories?
+
+    for(let i=2; i< categoryData.length; i++){
+    const subcategories = categoryData[i]; //the array in the others e.g. ["soccer", "badminton"]
+      
+      subSubcategories.forEach(subName => {
+        const subSubOption = document.createElement('option');
+        subSubOption.value = subSubName;
+        subSubOption.textContent = subSubName;
+        subSubCategorySelector.append(subSubOption);
+      });
+    }
+      subSubCategorySelector.disabled = false; //activate it so that you can click
+    }else{
+      subSubCategorySelector.disabled = true; // if there arent any subcategories like fishing
+    }
+  });
+}
+}
+window.makeThirdDropdown = makeThirdDropdown;
