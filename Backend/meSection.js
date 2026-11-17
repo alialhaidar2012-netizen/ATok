@@ -74,8 +74,6 @@ function makeDropdowns() {
      let subHTML = '<option value="">Please choose</option>';
 
      categoryData[i].forEach(subName => {
-    categoryHTML += '<option value="' + item[0][0] + '">' + item[0][0] + '</option>';
-       
        subHTML += '<option value="'+ subName + '">' + subName + '</option>';
      });
 
