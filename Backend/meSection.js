@@ -55,7 +55,7 @@ function makeDropdowns() {
   categorySelector.id = 'categorySelector';
 
   options.forEach(item =>{
-    categoryHTML += ˋ<option value="${item[0][0]}">${item[0][0]}</option>ˋ;
+    categoryHTML += '<option value="' + item[0][0] + '">' + item[0][0] + '</option>';
   });
   categorySelector.innerHTML = categoryHTML;
 
