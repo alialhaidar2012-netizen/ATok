@@ -34,8 +34,16 @@ function createHTML (){
   postButton = document.createElement('button');
   postButton.id = 'post-button';
   postButton.textContent = 'Post';
-  postButton.onclick = () => window.postButton();
-  
+  postButton.onclick = () => {
+    const category = categorySelector.value;  //is getting the categorie
+    const subSelects = optionContainer.querySelectorAll('select'); //gets the subcategories
+
+    if(window.currentVideoFile){
+      window.uploadVideo(window.currentVideoFile, category, subcategory)
+    }else{
+      alert('Please select or take a Video first');
+    }
+  }
   window.makeDropdowns();
 }
 window.createHTML = createHTML;
@@ -81,3 +89,38 @@ function appendHTML() {
   contentMe.append(meSection);
 }
 window.appendHTML = appendHTML;
+
+
+function showVideoPreview(file) {
+  window.currentVideoFile = file; //video we will need it when we cancel it so that the video is deleted
+  
+  //hide the page
+  settingsForPost.style.display = 'none';
+  takeVideo.style.display = 'none';
+  selectVideo.style.display = 'none';
+
+  //make a container for preview
+  const previewContainer = document.createElement('div');
+  previewContainer.id = 'preview-container';
+  
+  //make video element
+  const video = document.createElement('video');
+  video.src = URL.createObjectURL(file) //creating a link
+  video.controls = true;
+  video.style.width = '100%';
+  video.style.maxHeight = '400px';
+
+  //for cancelling the post 
+  const cancelButton = document.createElement('button');
+  cancelButton.textContent = 'Cancel';
+  backButton.onclick = () => {
+    previewContainer.remove();
+    settingsForPost.style.display = 'flex';
+    takeVideo.style.display = 'block';
+    selectVideo.style.display = 'block';
+    window.currentVideoFile = null;
+  }
+  previewContainer.append(video, backButton);
+  meSection.append(previewContainer)
+}
+window.showVideoPreview = showVideoPreview
