@@ -114,3 +114,154 @@
         margin-bottom: 20px;
       }
     }
+
+/* ========================================= */
+/* STYLING FÜR DIE "ME" SECTION (Video Upload) */
+/* ========================================= */
+
+/* Der Hauptcontainer für die "Me"-Ansicht */
+#me-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 15px; /* Abstand zwischen den Elementen */
+  width: 100%;
+}
+
+/* Die beiden Buttons für Kamera und Galerie */
+#take-video, #select-video {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 80%;
+  max-width: 300px;
+  transition: background-color 0.2s ease;
+}
+
+#take-video:hover, #select-video:hover {
+  background-color: #333;
+}
+
+/* Der Container für Titel, Kategorien und den Post-Button */
+#settings-for-post {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 80%;
+  max-width: 300px;
+}
+
+/* Das Eingabefeld für den Titel */
+#title-input {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+#title-input::placeholder {
+  color: #888;
+}
+
+/* Die Dropdown-Menüs (Haupt- und Unterkategorien) */
+#categorySelector, 
+#option-container select {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 8px; /* Abstand, falls mehrere Unterkategorien da sind */
+}
+
+/* Der Container für die dynamischen Unter-Dropdowns */
+#option-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Der "Posten"-Button */
+#post-button {
+  background-color: #fe2c55; /* TikTok-Rot als Akzentfarbe */
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80%;
+  max-width: 300px;
+  margin-top: 10px;
+  transition: transform 0.1s ease;
+}
+
+#post-button:hover {
+  transform: scale(1.02); /* Kleiner Hover-Effekt */
+}
+
+/* ========================================= */
+/* STYLING FÜR LOGIN/REGISTER (Falls noch nicht da) */
+/* ========================================= */
+
+/* Die bereits existierende login-form Klasse */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 30px;
+  background-color: #111;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 350px;
+  margin: 40px auto; /* Zentriert das Formular */
+}
+
+.login-form input {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+}
+
+.login-form button {
+  background-color: #fe2c55;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.register-link {
+  background: none !important; /* Überschreibt den roten Hintergrund für den Link-Button */
+  color: #888 !important;
+  font-size: 14px !important;
+  margin-top: 10px;
+}
+
+.register-link:hover {
+  color: #fff !important;
+}
