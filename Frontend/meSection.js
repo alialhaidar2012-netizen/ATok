@@ -3,7 +3,7 @@ const options = [
   [["beauty"], ["men", "woman", "both"], ["hair", "skin", "nails", "others"]],
   [["fashion"], ["men", "woman", "both"], ["shirts", "shoes", "jackets", "sweaters", "socks", "hats", "others"]],
   [["life-hacks"], ["food", "clothes", "others"]],
-  [["cooking"], ["breakfast", "lunch", "diner", "snack", "party meal", "big meal", "others"], ["fast-food", "asian-food", "oriental-food", "african-food", "aboriginal-food", "native american food", "arctic-food", "french-food", "indian-food", "italian-food", "german-food", "european-food", "latin-american-food", "mexican-food", "meat", "barbeque", "others"]],
+  [["cooking"], ["breakfast", "lunch", "diner", "snack", "party meal", "big meal", "others"], ["fast-food", "asian-food", "oriental-food", "african-food", "aboriginal-food", "native american food", "arctic-food", "french-food", "indian-food", "italian-food", "german-food", "european-food", "latin-american-food", "mexican-food", "meat", "barbeque", "vegan food", "vegetarian food", "others"]],
   [["comedy"], ["Ai", "real"], ["immitations", "Plays", "differences between different Cultures", "differences between boys and girls", "about children", "about wives", "about husbands", "about friends", "about other cultures", "cats", "dogs", "birds", "fish", "other animals", "others"]],
   [["animals"], ["Ai", "real"], ["birds", "cats", "dogs", "monkeys", "hamsters", "guinea pigs", "fish", "others"]],
   [["fishing"]],
@@ -30,10 +30,12 @@ function createHTML (){
   
   takeVideo = document.createElement('button');
   takeVideo.id = 'take-video';
+  takeVideo.textContent = 'Take Video';
   takeVideo.onclick = '';
 
   selectVideo = document.createElement('button');
   selectVideo.id = 'select-video';
+  selectVideo.textContent = 'Select a video from the galerie';
   selectVideo.onclick = '';
   
   settingsForPost = document.createElement('div');
@@ -45,6 +47,7 @@ function createHTML (){
 
   postButton = document.createElement('button');
   postButton.id = 'post-button';
+  postButton.textContent = 'Post';
   postButton.onclick = '';
   
   window.makeDropdowns();
@@ -88,7 +91,7 @@ window.makeDropdowns = makeDropdowns;
 
 function appendHTML() {
   settingsForPost.append(categorySelector,titleInput, optionContainer);
-  meSection.append(takeVideo, selectVideo, postButton, settingsForPost);
+  meSection.append(takeVideo, selectVideo, settingsForPost, postButton);
   contentMe.append(meSection);
 }
 window.appendHTML = appendHTML;
