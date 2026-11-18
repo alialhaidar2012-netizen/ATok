@@ -105,3 +105,4 @@ async function postVideo(file, category, subCategory){
     alert('Something went wrong' + error.message);
   }
 }
+window.postVideo = postVideo;
