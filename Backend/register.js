@@ -30,12 +30,12 @@ function prepareForRegister() {
   
   const registerButton = document.createElement('button');
   registerButton.id = 'register-button';
-  registerButton.className = 'register-link';
   registerButton.textContent = "Register";
   
   const goToLoginButton = document.createElement('button');
   goToLoginButton.id = 'login-button';
   goToLoginButton.textContent = "You have already an account? Go to Login";
+  registerButton.className = 'register-link';
   
   registerForm.append(emailInput, usernameInput, passwordInput, passwordInputSecond, goToLoginButton, registerButton);
   
