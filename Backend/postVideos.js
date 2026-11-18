@@ -17,6 +17,8 @@ function openCamera() {
   };
   videoInput.click();
 }
+window.openCamera = openCamera;
+
 function openGallery() {
   const videoInput = document.createElement('input')
   videoInput.type = 'file';
@@ -28,6 +30,7 @@ function openGallery() {
   };
   videoInput.click();
 }
+window.openGallery = openGallery;
 
 function showVideoPreview(file) {
   //Container leeren
