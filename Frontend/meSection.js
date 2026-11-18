@@ -1,23 +1,28 @@
+import{options} from './Backend/categories.js';
+
 let meSection;
 let takeVideo, selectVideo, settingsForPost, postButton, titleInput;
 const contentMe = document.getElementById('content-me');
 const categorySelector = document.createElement('select');
 let categoryHTML = '<option value="">Please choose</option>';
 const optionContainer = document.createElement('div');
+const contentMe = document.getElementById('content-me');
 
-function createHTML (){ 
+function createHTML (){
+  contentMe.innerHTML = '';
+  
   meSection = document.createElement('div');
   meSection.id = 'me-section';
   
   takeVideo = document.createElement('button');
   takeVideo.id = 'take-video';
   takeVideo.textContent = 'Take Video';
-  takeVideo.onclick = 'window.openCamera()';
+  takeVideo.onclick = () => window.openCamera(); //arrow function that means it should wait until it starts
 
   selectVideo = document.createElement('button');
   selectVideo.id = 'select-video';
   selectVideo.textContent = 'Select a video from the galerie';
-  selectVideo.onclick = 'window.openGallery()';
+  selectVideo.onclick = () => window.openGallery();
   
   settingsForPost = document.createElement('div');
   settingsForPost.id = 'settings-for-post';
@@ -29,7 +34,7 @@ function createHTML (){
   postButton = document.createElement('button');
   postButton.id = 'post-button';
   postButton.textContent = 'Post';
-  postButton.onclick = 'window.postButton()';
+  postButton.onclick = () => window.postButton();
   
   window.makeDropdowns();
 }
