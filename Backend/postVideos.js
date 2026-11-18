@@ -32,34 +32,6 @@ function openGallery() {
 }
 window.openGallery = openGallery;
 
-function showVideoPreview(file) {
-  //Container leeren
-  const meSection = document.getElementById('content-me');
-  meSection.innerHTML = '';
-  
-  //Das video Element erstellen
-  const video = document.createElement('video');
-  video.src = URL.createObjectURL(file) //creating a link
-  video.controls = true;
-  video.style.width = '100%';
-  video.style.maxHeight = '400px';
-  
-  //post Button erstellen
-  postButton = document.createElement('button');
-  postButton.textContent = 'Post'
-  postButton.id = 'post-button';
-  
-  //get Category 
-  const selectedCategory = categorySelector ? categorySelector.value : 'others';
-  const selectedSubCategory = categorySubSelector ? categorySubSelector.value: "";
-  
-  //onclick
-  postButton.onclick = () => postVideo(file, selectedCategory, selectedSubCategory); // arrow function wird erst ausgeführ wenn der Nutzer auf den Button klickt
-
-  //in container einfügen
-  meSection.append(video, postButton);
-}
-
 async function postVideo(file, category, subCategory){
   const loginForm = document.getElementById('loginForm');
   const meSection = document.getElementById('meSection');
