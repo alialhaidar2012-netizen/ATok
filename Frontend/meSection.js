@@ -31,12 +31,12 @@ function createHTML (){
   takeVideo = document.createElement('button');
   takeVideo.id = 'take-video';
   takeVideo.textContent = 'Take Video';
-  takeVideo.onclick = '';
+  takeVideo.onclick = 'window.openCamera()';
 
   selectVideo = document.createElement('button');
   selectVideo.id = 'select-video';
   selectVideo.textContent = 'Select a video from the galerie';
-  selectVideo.onclick = '';
+  selectVideo.onclick = 'window.openGallery()';
   
   settingsForPost = document.createElement('div');
   settingsForPost.id = 'settings-for-post';
@@ -48,7 +48,7 @@ function createHTML (){
   postButton = document.createElement('button');
   postButton.id = 'post-button';
   postButton.textContent = 'Post';
-  postButton.onclick = '';
+  postButton.onclick = 'window.postButton()';
   
   window.makeDropdowns();
 }
