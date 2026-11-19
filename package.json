@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'Test are coming later'"
+    "test": "node -e \"require('firebase/app'); console.log('Firebase is running')\""
   },
   "repository": {
     "type": "git",
