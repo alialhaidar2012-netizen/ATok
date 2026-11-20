@@ -1,4 +1,4 @@
-import{options} from './Backend/categories.js';
+import{options} from './categories.js';
 
 let meSection;
 let takeVideo, selectVideo, settingsForPost, postButton, titleInput;
