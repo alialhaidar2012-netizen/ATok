@@ -32,7 +32,7 @@ function openGallery() {
 }
 window.openGallery = openGallery;
 
-async function uploadVideo(file, category, subCategory){
+async function uploadVideo(file, category, subSelects){
   const currentUser = auth.currentUser;
 
   //stops the function if you arent logged in 
@@ -55,7 +55,7 @@ async function uploadVideo(file, category, subCategory){
     }
     
     //upload video in the storage
-    const path = 'videos/' + category + '/' + subCategory+ 'Date.now()' + '_'+ file.name;
+    const path = 'videos/' + category + '/' + subCategory+ Date.now() + '_'+ file.name;
     const storageRef = ref(storage, path);  //upload
     
     await uploadBytes(storageRef, file); //get URL
@@ -70,11 +70,11 @@ async function uploadVideo(file, category, subCategory){
       category: category,
       subCategory: subCategory,
       username: username,
-      userId: user.uid //UID for maybe other features
+      userId: currentUser.uid //UID for maybe other features
     });
     
     alert('Video posted!');
-    window.creatHTML();
+    window.createHTML();
     
   }catch(error){
     alert('Something went wrong' + error.message);
