@@ -6,7 +6,6 @@ const contentMe = document.getElementById('content-me');
 const categorySelector = document.createElement('select');
 let categoryHTML = '<option value="">Please choose</option>';
 const optionContainer = document.createElement('div');
-const contentMe = document.getElementById('content-me');
 
 function createHTML (){
   contentMe.innerHTML = '';
