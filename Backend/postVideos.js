@@ -32,13 +32,10 @@ function openGallery() {
 }
 window.openGallery = openGallery;
 
-async function postVideo(file, category, subCategory){
-  const loginForm = document.getElementById('loginForm');
-  const meSection = document.getElementById('meSection');
-
+async function uploadVideo(file, category, subCategory){
   const currentUser = auth.currentUser;
 
-  //stops postVideo if you arent logged in 
+  //stops the function if you arent logged in 
   if(!currentUser){
     meSection.append(loginForm); 
     return;                     
@@ -58,9 +55,11 @@ async function postVideo(file, category, subCategory){
     }
     
     //upload video in the storage
-    const storageRef = ref(storage, ˋvideos/${category}/${subCategory/${Date.now()}_${file.name}ˋ);    //upload
+    const path = 'videos/' + category + '/' + subCategory+ 'Date.now()' + '_'+ file.name;
+    const storageRef = ref(storage, path);  //upload
+    
     await uploadBytes(storageRef, file); //get URL
-    //den Link holen
+    //get the link
     const downloadURL = await getDownloadURL(storageRef);
     
     //only the link to save storage space
@@ -70,14 +69,15 @@ async function postVideo(file, category, subCategory){
       createdAt: Date.now(),
       category: category,
       subCategory: subCategory,
-      username: username.value,
+      username: username,
       userId: user.uid //UID for maybe other features
     });
     
     alert('Video posted!');
+    window.creatHTML();
     
   }catch(error){
     alert('Something went wrong' + error.message);
   }
 }
-window.postVideo = postVideo;
+window.uploadVideo = uploadVideo;
