@@ -112,7 +112,7 @@ function showVideoPreview(file) {
   //for cancelling the post 
   const cancelButton = document.createElement('button');
   cancelButton.textContent = 'Cancel';
-  backButton.onclick = () => {
+  cancelButton.onclick = () => {
     previewContainer.remove();
     settingsForPost.style.display = 'flex';
     takeVideo.style.display = 'block';
