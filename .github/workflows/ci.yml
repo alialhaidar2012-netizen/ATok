@@ -8,8 +8,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: check code
+        uses: actions/checkout@v4
+
+      - name: make node.js setup
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: echo "CI läuft erfolgreich!"
+
+      - name: install firebase
+        run: npm install
+
+      - name: test firebase
+        run: npm test
