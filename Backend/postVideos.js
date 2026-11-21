@@ -32,7 +32,7 @@ function openGallery() {
 }
 window.openGallery = openGallery;
 
-async function uploadVideo(file, category, subSelects){
+async function uploadVideo(file, category, subCategory){
   const currentUser = auth.currentUser;
 
   //stops the function if you arent logged in 
