@@ -69,7 +69,7 @@ async function uploadVideo(file, category, subCategory){
       url: downloadURL,
       createdAt: Date.now(),
       category: category,
-      subCategories: ,
+      subCategories: subCategories,
       username: username,
       userId: currentUser.uid //UID for maybe other features
     });
