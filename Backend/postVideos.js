@@ -37,7 +37,8 @@ async function uploadVideo(file, category, subCategory){
 
   //stops the function if you arent logged in 
   if(!currentUser){
-    meSection.append(loginForm); 
+    meSection.append(loginForm);
+    alert('Please login first');
     return;                     
   } 
   
@@ -68,7 +69,7 @@ async function uploadVideo(file, category, subCategory){
       url: downloadURL,
       createdAt: Date.now(),
       category: category,
-      subCategory: subCategory,
+      subCategories: ,
       username: username,
       userId: currentUser.uid //UID for maybe other features
     });
