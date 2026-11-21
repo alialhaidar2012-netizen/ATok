@@ -35,10 +35,14 @@ function createHTML (){
   postButton.textContent = 'Post';
   postButton.onclick = () => {
     const category = categorySelector.value;  //is getting the categorie
-    const subSelects = optionContainer.querySelectorAll('select'); //gets the subcategories
+    
+    const subSelects = optionContainer.querySelectorAll('select'); //get all subcategories
 
-    const subCategory = subSelects.length > 0 ? subSelects[subSelects.length-1].value : "others";
-    if(window.currentVideoFile){
+    const subCategories = Array.from(subSelects);
+      .map(select => select.value);
+      .filter(value => value !== "");
+
+  if(window.currentVideoFile){
       window.uploadVideo(window.currentVideoFile, category, subCategory)
     }else{
       alert('Please select or take a Video first');
