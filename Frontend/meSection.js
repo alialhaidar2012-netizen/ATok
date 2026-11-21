@@ -35,7 +35,7 @@ function createHTML (){
   postButton.textContent = 'Post';
   postButton.onclick = () => {
     const category = categorySelector.value;  //is getting the categorie
-    const subCategory = optionContainer.querySelectorAll('select'); //gets the subcategories
+    const subSelects = optionContainer.querySelectorAll('select'); //gets the subcategories
 
     if(window.currentVideoFile){
       window.uploadVideo(window.currentVideoFile, category, subCategory)
@@ -119,7 +119,7 @@ function showVideoPreview(file) {
     selectVideo.style.display = 'block';
     window.currentVideoFile = null;
   }
-  previewContainer.append(video, backButton);
+  previewContainer.append(video, cancelButton);
   meSection.append(previewContainer)
 }
 window.showVideoPreview = showVideoPreview
