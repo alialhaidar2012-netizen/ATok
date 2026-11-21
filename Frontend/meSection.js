@@ -37,6 +37,7 @@ function createHTML (){
     const category = categorySelector.value;  //is getting the categorie
     const subSelects = optionContainer.querySelectorAll('select'); //gets the subcategories
 
+    const subCategory = subSelects.length > 0 ? subSelects[subSelects.length-1].value : "others";
     if(window.currentVideoFile){
       window.uploadVideo(window.currentVideoFile, category, subCategory)
     }else{
@@ -97,7 +98,7 @@ function showVideoPreview(file) {
   settingsForPost.style.display = 'none';
   takeVideo.style.display = 'none';
   selectVideo.style.display = 'none';
-
+ 
   //make a container for preview
   const previewContainer = document.createElement('div');
   previewContainer.id = 'preview-container';
@@ -120,6 +121,6 @@ function showVideoPreview(file) {
     window.currentVideoFile = null;
   }
   previewContainer.append(video, cancelButton);
-  meSection.append(previewContainer)
+  meSection.append(previewContainer);
 }
-window.showVideoPreview = showVideoPreview
+window.showVideoPreview = showVideoPreview;
