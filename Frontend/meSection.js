@@ -38,8 +38,8 @@ function createHTML (){
     
     const subSelects = optionContainer.querySelectorAll('select'); //get all subcategories
 
-    const subCategories = Array.from(subSelects);
-      .map(select => select.value);
+    const subCategories = Array.from(subSelects)
+      .map(select => select.value)
       .filter(value => value !== "");
 
   if(window.currentVideoFile){
