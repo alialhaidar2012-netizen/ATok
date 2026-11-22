@@ -1,10 +1,10 @@
 {
   "name": "atok",
   "version": "1.0.0",
-  "description": "",
+  "description": "MiniTikTok",
   "main": "index.js",
   "scripts": {
-    "test": "node -e \"require('firebase/app'); console.log('Firebase is running')\""
+    "test": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/alialhaidar2012-netizen/ATok#readme",
   "dependencies": {
     "firebase": "^13.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0"
   }
 }
