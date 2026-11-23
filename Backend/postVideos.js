@@ -7,9 +7,6 @@ import { getFirestore, collection, addDoc, doc, getDoc } from 'https://www.gstat
 
 import{auth} from './firebase.js';
 
-const loginForm = document.getElementById('content-me');
-const meSection = document.getElementById('content-me');
-
 function openCamera() {
   const videoInput = document.createElement('input')
   videoInput.type ='file';
@@ -42,8 +39,11 @@ async function uploadVideo(file, category, subCategories){
 
   //stops the function if you arent logged in 
   if(!currentUser){
-    meSection.append(loginForm);
     alert('Please login first');
+
+    if(window.prepareForLogin){
+      window.prepareForLogin();
+    }
     return;                     
   } 
   
@@ -67,13 +67,15 @@ async function uploadVideo(file, category, subCategories){
 
     if(subCategories){  
     if(subCategories.length > 0){
-    let path = 'videos/' + category + '/' + firstSubCategory+'/'+ Date.now() + '_'+ file.name;   
     }else if(subCategories.length > 1){
     let path = 'videos/' + category + '/' + firstSubCategory+'/'+secondSubCategory+'/'+ Date.now() + '_'+ file.name;   
     }else if(subCategories.length > 2){
     let path = 'videos/' + category + '/' + firstSubCategory+'/'+secondSubCategory+'/'+thirdSubCategory+'/'+ Date.now() + '_'+ file.name;     
     }
   }
+
+    const subPath = subCategories.join('/');
+    let path = 'videos/' + category + '/'+(subPath ? subPath + '/':'')+ Date.now() + '_'+ file.name;  
     const storageRef = ref(storage, path);  //upload
     
     await uploadBytes(storageRef, file); //get URL
