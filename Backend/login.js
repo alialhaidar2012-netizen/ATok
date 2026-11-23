@@ -2,7 +2,6 @@ import {auth} from './firebase.js'; //get definded functions from firebase.js
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'; // get it from firebase
 
 const meSection = document.getElementById("content-me");
-const forYouSection = document.getElementById("content-for-you");
 
 window.loggedIn = false;
 
