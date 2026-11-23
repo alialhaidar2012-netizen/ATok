@@ -5,6 +5,8 @@ import { getFirestore, collection, addDoc, doc, getDoc } from 'https://www.gstat
 
 import{auth} from './firebase.js';
 
+const loginForm = document.getElementById('content-me');
+
 function openCamera() {
   const videoInput = document.createElement('input')
   videoInput.type ='file';
