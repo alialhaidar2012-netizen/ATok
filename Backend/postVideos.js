@@ -61,19 +61,6 @@ async function uploadVideo(file, category, subCategories){
     }
 
     //upload video in the storage    
-    const firstSubCat = subCategories.length > 0? subCategories[0] : "";
-    const secondSubCat = subCategories.length > 1? subCategories[1] : "";
-    const thirdSubCat = subCategories.length > 2? subCategories[2] : "";
-
-    if(subCategories){  
-    if(subCategories.length > 0){
-    }else if(subCategories.length > 1){
-    let path = 'videos/' + category + '/' + firstSubCategory+'/'+secondSubCategory+'/'+ Date.now() + '_'+ file.name;   
-    }else if(subCategories.length > 2){
-    let path = 'videos/' + category + '/' + firstSubCategory+'/'+secondSubCategory+'/'+thirdSubCategory+'/'+ Date.now() + '_'+ file.name;     
-    }
-  }
-
     const subPath = subCategories.join('/');
     let path = 'videos/' + category + '/'+(subPath ? subPath + '/':'')+ Date.now() + '_'+ file.name;  
     const storageRef = ref(storage, path);  //upload
