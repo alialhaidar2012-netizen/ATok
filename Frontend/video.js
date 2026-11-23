@@ -1,4 +1,4 @@
-import{importVideoFromFirebase}.from '../Backend/getVideos.js';
+import{importVideoFromFirebase} from '../Backend/getVideos.js';
 //get Elements
 const videoContainer = document.getElementById("videoContainer");
 
