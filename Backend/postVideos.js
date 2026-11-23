@@ -1,3 +1,4 @@
+//global showVideoPreview, meSection
 // Storage (upload videos)
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js';
 //Firestore (save URL)
@@ -6,6 +7,7 @@ import { getFirestore, collection, addDoc, doc, getDoc } from 'https://www.gstat
 import{auth} from './firebase.js';
 
 const loginForm = document.getElementById('content-me');
+const meSection = document.getElementById('content-me');
 
 function openCamera() {
   const videoInput = document.createElement('input')
@@ -28,7 +30,7 @@ function openGallery() {
   
   videoInput.onchange = (e) => {
     const file = e.target.files[0]; //takes only the first
-    if(file) showVideoPreview(file);
+    if(file) window.showVideoPreview(file);
   };
   videoInput.click();
 }
@@ -58,7 +60,7 @@ async function uploadVideo(file, category, subCategory){
     }
     
     //upload video in the storage
-    const path = 'videos/' + category + '/' + subCategory+ Date.now() + '_'+ file.name;
+    const path = 'videos/' + category + '/' + subCategories+ Date.now() + '_'+ file.name;
     const storageRef = ref(storage, path);  //upload
     
     await uploadBytes(storageRef, file); //get URL
