@@ -1,4 +1,5 @@
-//global showVideoPreview, meSection
+/* global showVideoPreview */
+
 // Storage (upload videos)
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js';
 //Firestore (save URL)
@@ -36,7 +37,7 @@ function openGallery() {
 }
 window.openGallery = openGallery;
 
-async function uploadVideo(file, category, subCategory){
+async function uploadVideo(file, category, subCategories){
   const currentUser = auth.currentUser;
 
   //stops the function if you arent logged in 
