@@ -43,7 +43,7 @@ function createHTML (){
       .filter(value => value !== "");
 
   if(window.currentVideoFile){
-      window.uploadVideo(window.currentVideoFile, category, subCategory)
+      window.uploadVideo(window.currentVideoFile, category, subCategories)
     }else{
       alert('Please select or take a Video first');
     }
