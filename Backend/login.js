@@ -12,7 +12,7 @@ if(!window.loggedIn){
   createHTML();
 }
 
-export function prepareForLogin() {
+function prepareForLogin() {
   const loginForm = document.createElement('div');
   loginForm.className = 'login-form'; //class for login that we can later style
   
@@ -51,6 +51,7 @@ export function prepareForLogin() {
   window.prepareForRegister();  
 });
 }
+window.prepareForLogin = prepareForLogin; //make it globally accessible
 
 async function login(email, password) {
   try {
@@ -63,5 +64,3 @@ async function login(email, password) {
     console.log("Check username and password ", error);
   }
 }
-
-window.prepareForLogin = prepareForLogin; //make it globally accessible
