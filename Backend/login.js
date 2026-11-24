@@ -1,4 +1,4 @@
-import {createHTML} from '../Frontend/meSection';
+import {createHTML} from '../Frontend/meSection.js';
 import {auth} from './firebase.js'; //get definded functions from firebase.js
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'; // get it from firebase
 
