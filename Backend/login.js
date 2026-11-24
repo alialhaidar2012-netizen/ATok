@@ -55,13 +55,9 @@ async function login(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email,password);
     console.log("Login succeeded", userCredential.user); //Later we will make it more beautifully
-    
-    const loginForm = document.querySelector('.login-form');
-    if (loginForm) loginForm.style.display = 'none';
-    
+        
     window.loggedIn = true;
-
-    window.createHTML();
+    window.createHTML(); // rebuilts the meSection for logged in users where you can post videos
   }catch(error){
     console.log("Check username and password ", error);
   }
