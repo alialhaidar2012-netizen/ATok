@@ -7,7 +7,7 @@ const categorySelector = document.createElement('select');
 let categoryHTML = '<option value="">Please choose</option>';
 const optionContainer = document.createElement('div');
 
-function createHTML (){
+export function createHTML (){
   contentMe.innerHTML = '';
   
   meSection = document.createElement('div');
@@ -50,7 +50,6 @@ function createHTML (){
   }
   window.makeDropdowns();
 }
-window.createHTML = createHTML;
 
 function makeDropdowns() {
   categorySelector.id = 'categorySelector';
