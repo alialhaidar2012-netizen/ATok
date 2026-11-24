@@ -1,3 +1,4 @@
+import {createHTML} from '../Frontend/meSection';
 import {auth} from './firebase.js'; //get definded functions from firebase.js
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'; // get it from firebase
 
@@ -8,7 +9,7 @@ window.loggedIn = false;
 if(!window.loggedIn){
   prepareForLogin();
 }else{
-  window.createHTML();
+  createHTML();
 }
 
 export function prepareForLogin() {
@@ -57,7 +58,7 @@ async function login(email, password) {
     console.log("Login succeeded", userCredential.user); //Later we will make it more beautifully
         
     window.loggedIn = true;
-    window.createHTML(); // rebuilts the meSection for logged in users where you can post videos
+    createHTML(); // rebuilts the meSection for logged in users where you can post videos
   }catch(error){
     console.log("Check username and password ", error);
   }
