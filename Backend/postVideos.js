@@ -1,5 +1,5 @@
 /* global showVideoPreview */
-
+import {createHTML} from '../Frontend/meSection.js';
 // Storage (upload videos)
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js';
 //Firestore (save URL)
@@ -81,7 +81,7 @@ async function uploadVideo(file, category, subCategories){
     });
     
     alert('Video posted!');
-    window.createHTML();
+    createHTML();
     
   }catch(error){
     alert('Something went wrong' + error.message);
