@@ -51,7 +51,6 @@ function prepareForLogin() {
   window.prepareForRegister();  
 });
 }
-window.prepareForLogin = prepareForLogin; //make it globally accessible
 
 async function login(email, password) {
   try {
@@ -64,3 +63,6 @@ async function login(email, password) {
     console.log("Check username and password ", error);
   }
 }
+
+//do it at the and to avoid an hoisting error
+window.prepareForLogin = prepareForLogin; //make it globally accessible
