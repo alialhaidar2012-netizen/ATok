@@ -127,3 +127,7 @@ function showVideoPreview(file) {
   meSection.append(previewContainer);
 }
 window.showVideoPreview = showVideoPreview;
+
+
+
+window.createHTML = createHTML;
