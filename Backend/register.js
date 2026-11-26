@@ -1,3 +1,4 @@
+import {createHTML} from '../Frontend/meSection.js';
 import {auth} from './firebase.js';
 import {createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
@@ -75,7 +76,7 @@ async function register(email, password) {
     window.loggedIn = true;
     const registerForm = document.querySelector('.login-form');
     if(registerForm) registerForm.style.display = 'none';
-    window.createHTML();
+    createHTML();
   } catch (error){
     alert("Something went wrong" + error);
   }
