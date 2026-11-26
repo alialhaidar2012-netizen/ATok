@@ -27,7 +27,7 @@ function prepareForRegister() {
   const passwordInputSecond = document.createElement('input'); //if you typo you will notice it here
   passwordInputSecond.type = 'password';
   passwordInputSecond.placeholder = 'Write your password again';
-  passwordInputSecond.id = 'password';
+  passwordInputSecond.id = 'password-confirm';
   
   const registerButton = document.createElement('button');
   registerButton.id = 'register-button';
