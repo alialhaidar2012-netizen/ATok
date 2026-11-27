@@ -38,7 +38,7 @@ export function createHTML (){
     
     const subSelects = optionContainer.querySelectorAll('select'); //get all subcategories
 
-    const subCategories = Array.from(subSelects);
+    const subCategories = Array.from(subSelects)
       .map(select => select.value)
       .filter(value => value !== "");
 
