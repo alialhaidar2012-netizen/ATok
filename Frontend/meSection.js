@@ -36,9 +36,9 @@ export function createHTML (){
   postButton.onclick = () => {
     const category = categorySelector.value;  //is getting the categorie
     
-    export const subSelects = optionContainer.querySelectorAll('select'); //get all subcategories
+    const subSelects = optionContainer.querySelectorAll('select'); //get all subcategories
 
-    export const subCategories = Array.from(subSelects);
+    const subCategories = Array.from(subSelects);
       .map(select => select.value)
       .filter(value => value !== "");
 
